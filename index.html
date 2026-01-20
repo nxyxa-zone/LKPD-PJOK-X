@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PJOK PRO - Atletik Zone</title>
+    <title>LKPD PJOK PRO : Atletik Zone</title>
     
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Google Fonts (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <script>
@@ -16,9 +19,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563EB',   
-                        secondary: '#F59E0B', 
-                        fun: '#8B5CF6',       
+                        primary: '#4F46E5',   /* Indigo */
+                        secondary: '#F59E0B', /* Amber */
+                        fun: '#EC4899',       /* Pink */
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
@@ -32,36 +35,644 @@
         .fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); scale: 0.95; } to { opacity: 1; transform: translateY(0); scale: 1; } }
         
-        .tab-active { background-color: #2563EB; color: white; border-bottom: 4px solid #F59E0B; font-weight: 700; }
+        .tab-active { background-color: #4F46E5; color: white; border-bottom: 4px solid #F59E0B; font-weight: 700; transform: scale(1.02); }
         .tab-inactive { background-color: white; color: #9CA3AF; font-weight: 500; }
         
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #8B5CF6;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #4F46E5; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Modal Styles */
+        /* Modal Scroll Fix */
         .modal { transition: opacity 0.3s ease; }
-        .modal-content { animation: slideIn 0.3s ease; }
-        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-content { max-height: 90vh; overflow-y: auto; }
         
-        /* Smooth Scroll */
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-gray-800 antialiased min-h-screen flex justify-center">
+<body class="bg-slate-100 font-sans text-gray-800 antialiased min-h-screen flex justify-center">
 
-    <div class="w-full max-w-lg bg-white shadow-2xl min-h-screen relative flex flex-col border-x border-gray-200">
+    <div class="w-full max-w-lg bg-white shadow-2xl min-h-screen relative flex flex-col border-x border-slate-200">
 
-        <header id="top-header" class="relative h-72 overflow-hidden rounded-b-[40px] shadow-xl z-10 group bg-gradient-to-br from-blue-900 to-indigo-900">
+        <!-- ================= HERO SECTION (FUN THEME) ================= -->
+        <header id="top-header" class="relative h-72 overflow-hidden rounded-b-[40px] shadow-xl z-10 group bg-gradient-to-br from-indigo-800 to-purple-900">
             <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1000&auto=format&fit=crop" 
                  alt="Sports Background" 
                  class="absolute w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 mix-blend-overlay"
                  onerror="this.style.display='none'"> 
 
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 p-6 text-white w-full">
+                <div class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full inline-flex items-center gap-2 mb-2 border border-white/30 shadow-lg">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <p class="font-bold text-[10px] uppercase tracking-wider">PJOK Fase E • Kelas X</p>
+                </div>
+                <h1 class="text-3xl font-extrabold leading-tight mb-1 drop-shadow-md"> Aktivitas Atletik <br><span class="text-yellow-400">Lari ⚡</span></h1>
+                
+                <!-- IDENTITAS GURU & TOMBOL ADMIN -->
+                <div class="flex items-center justify-between mt-4 bg-black/30 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white p-1 rounded-xl shadow-lg h-12 w-12 flex items-center justify-center overflow-hidden">
+                            <!-- LOGO -->
+                            <img src="1000412979.png" alt="Logo" class="h-full w-full object-contain" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                            <i class="fas fa-user-tie text-indigo-500 text-xl hidden"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-gray-300 uppercase tracking-widest">Coach / Guru Mapel</span>
+                            <span class="text-sm font-bold text-white leading-tight">M. Nanda S.N., S.Kom.</span>
+                        </div>
+                    </div>
+                    <!-- Tombol Gembok (Login Guru) -->
+                    <button onclick="openAdminModal()" class="text-white/60 hover:text-white hover:bg-white/10 transition-colors p-3 rounded-full">
+                        <i class="fas fa-lock"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ================= IDENTITAS SISWA ================= -->
+        <section id="identity-section" class="flex-grow p-8 flex flex-col justify-center fade-in">
+            <div class="text-center mb-8">
+                <div class="inline-block p-4 rounded-full bg-indigo-100 text-indigo-600 mb-3 text-3xl animate-bounce shadow-sm">👋</div>
+                <h2 class="text-2xl font-bold text-gray-800">Siap Cetak Rekor?</h2>
+                <p class="text-gray-500 text-sm mt-1">Isi presensi dulu sebelum masuk ke lapangan!</p>
+            </div>
+
+            <form id="identity-form" class="space-y-5">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-gray-500 uppercase ml-1">Nama Lengkap</label>
+                    <input type="text" id="student-name" class="w-full px-5 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all outline-none font-medium shadow-sm" placeholder="Tulis nama lengkap..." required>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase ml-1">Kelas</label>
+                        <select id="student-class" class="w-full px-5 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all outline-none font-medium appearance-none shadow-sm">
+                            <option>X TKJ A</option>
+                            <option>X TKJ B</option>
+                            <option>X TBSM</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase ml-1">No. Absen</label>
+                        <input type="number" id="student-number" class="w-full px-5 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all outline-none font-medium shadow-sm" placeholder="00" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-2xl shadow-xl hover:bg-indigo-700 transform active:scale-95 transition-all mt-6 flex justify-center items-center gap-2 group border-b-4 border-indigo-800">
+                    <span>Gaspol Belajar!</span> 
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform text-yellow-400"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- ================= KONTEN SISWA (MATERI) ================= -->
+        <main id="main-content" class="hidden flex-col flex-grow bg-slate-50">
+            <!-- Tab Navigasi -->
+            <div class="flex text-sm text-center bg-white shadow-sm sticky top-0 z-30 mx-4 mt-4 rounded-2xl overflow-hidden p-1 gap-1" id="tabs">
+                <button onclick="switchTab('short')" id="tab-short" class="flex-1 py-3 rounded-xl transition-all duration-300">Sprint 🏃💨</button>
+                <button onclick="switchTab('middle')" id="tab-middle" class="flex-1 py-3 rounded-xl transition-all duration-300">Menengah 🔥</button>
+                <button onclick="switchTab('long')" id="tab-long" class="flex-1 py-3 rounded-xl transition-all duration-300">Jauh 🔋</button>
+            </div>
+
+            <div class="p-6 space-y-8 pb-32">
+                
+                <!-- 1. VIDEO & MATERI -->
+                <section id="material-section" class="fade-in">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-blue-600 text-white p-2 rounded-lg shadow-lg shadow-blue-500/30"><i class="fas fa-play"></i></div>
+                        <h2 class="text-xl font-extrabold text-gray-800" id="material-title">Judul Materi</h2>
+                    </div>
+                    
+                    <!-- Video Embed -->
+                    <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl mb-4 aspect-video relative group ring-4 ring-white">
+                        <div class="loader absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
+                        <iframe id="video-embed" class="w-full h-full relative z-10" src="" title="Materi Video" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <!-- Keterangan Video (Deskripsi) -->
+                    <div class="bg-blue-50 p-4 rounded-3xl border border-blue-100 text-sm text-gray-700 leading-relaxed shadow-sm mb-6 flex gap-3">
+                        <i class="fas fa-info-circle text-blue-500 mt-1 shrink-0"></i>
+                        <p id="video-desc" class="italic font-medium"></p>
+                    </div>
+
+                    <!-- SAFETY CORNER (PENTING) -->
+                    <div class="bg-red-50 p-5 rounded-3xl border border-red-100 mb-6 flex items-start gap-3 shadow-sm relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 text-red-100 text-6xl rotate-12"><i class="fas fa-ambulance"></i></div>
+                        <div class="bg-red-100 text-red-600 p-2 rounded-lg shrink-0 relative z-10"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-red-700 text-sm mb-1 uppercase tracking-wide">Safety First!</h4>
+                            <p id="safety-text" class="text-xs text-red-600 leading-relaxed font-medium"></p>
+                        </div>
+                    </div>
+
+                    <!-- Poin Penting (Cheat Sheet) -->
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-indigo-100 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-yellow-100 rounded-bl-[100px] -mr-4 -mt-4 z-0"></div>
+                        <h4 class="font-bold text-gray-800 mb-4 relative z-10 flex items-center gap-2">
+                            <i class="fas fa-lightbulb text-yellow-500"></i> Cheat Sheet Materi:
+                        </h4>
+                        <ul class="space-y-3 relative z-10" id="key-points"></ul>
+                    </div>
+                </section>
+
+                <!-- 2. GLOSARIUM (KAMUS ISTILAH) -->
+                <section class="fade-in bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="bg-purple-100 text-purple-600 p-2 rounded-lg shadow-sm"><i class="fas fa-book-open"></i></div>
+                        <h3 class="font-bold text-gray-800">Kamus Istilah (Glosarium)</h3>
+                    </div>
+                    <div class="grid gap-3 text-sm" id="glossary-container">
+                        <!-- Diisi via JS -->
+                    </div>
+                </section>
+
+                <!-- 3. MISI PRAKTIK (CHALLENGE) -->
+                <section class="fade-in">
+                    <div class="bg-gradient-to-br from-violet-600 to-indigo-600 rounded-[30px] p-6 text-white shadow-2xl shadow-indigo-500/40 relative overflow-hidden">
+                        <i class="fas fa-trophy absolute -bottom-4 -right-4 text-9xl text-white/10 rotate-12"></i>
+                        <div class="flex items-center gap-3 mb-5 relative z-10">
+                            <div class="bg-white/20 p-2.5 rounded-xl backdrop-blur-md border border-white/20"><i class="fas fa-gamepad text-2xl text-yellow-300"></i></div>
+                            <div>
+                                <h3 class="font-bold text-xl">CHALLENGE LAPANGAN!</h3>
+                                <p class="text-xs text-indigo-200 font-medium">Selesaikan misi ini bareng temenmu</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Konten Panduan (Warna Teks Putih) -->
+                        <div id="practice-guide-content" class="bg-black/20 backdrop-blur-sm rounded-2xl p-5 text-sm leading-relaxed border border-white/10 mb-5 relative z-10 text-white/90">
+                            <!-- Diisi JS -->
+                        </div>
+                        
+                        <!-- Input Cerita -->
+                        <div class="bg-white p-1 rounded-2xl shadow-lg relative z-10">
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                                <label class="block text-xs font-bold text-indigo-500 uppercase mb-2 flex items-center gap-1"><i class="fas fa-bullhorn"></i> Story Time (Ceritain Dong!)</label>
+                                <textarea id="input-cerita" class="w-full bg-transparent text-gray-700 text-sm h-16 outline-none resize-none placeholder-gray-400" placeholder="Gimana rasanya? Tim kamu menang gak? Ceritain yang seru ya!"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. P5 CHECKLIST (KONTEKSTUAL) -->
+                <section class="fade-in bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-gray-800 text-lg">Level Up Karakter! ⭐</h3>
+                        <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-lg font-bold shadow-sm">P5 Profile</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-3">Centang sikap yang berhasil kamu terapkan:</p>
+                    <div class="grid grid-cols-1 gap-3" id="p5-checklist-container">
+                        <!-- Diisi JS -->
+                    </div>
+                </section>
+
+                <!-- 5. REFLEKSI DIRI -->
+                <section class="fade-in bg-indigo-50 p-6 rounded-3xl border-2 border-dashed border-indigo-200">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="bg-white p-2 rounded-full shadow-sm"><i class="fas fa-comment-dots text-indigo-500 text-xl"></i></div>
+                        <h3 class="font-bold text-gray-800">Refleksi Diri</h3>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-2">Apa kesulitan terbesarmu hari ini?</p>
+                    <textarea id="input-refleksi" class="w-full p-4 rounded-2xl bg-white border border-indigo-100 focus:ring-2 focus:ring-indigo-300 outline-none text-sm h-24 resize-none shadow-sm" placeholder="Tulis refleksimu di sini..."></textarea>
+                </section>
+
+                <!-- 6. QUIZ (HOTS) -->
+                <section class="fade-in">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="bg-green-500 text-white p-2 rounded-lg shadow-lg shadow-green-500/30"><i class="fas fa-brain"></i></div>
+                        <h2 class="text-xl font-extrabold text-gray-800">Quiz Time! 🧠</h2>
+                    </div>
+                    <div id="quiz-container" class="space-y-5"></div>
+                </section>
+
+                <!-- TOMBOL KIRIM -->
+                <div class="pt-2 pb-6">
+                    <button onclick="submitLKPD()" class="w-full bg-slate-900 text-white font-bold py-5 rounded-[20px] shadow-2xl transform active:scale-95 transition-all flex justify-between items-center px-6 group border-b-4 border-slate-700 hover:bg-black">
+                        <div class="flex flex-col items-start">
+                            <span class="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Misi Selesai?</span>
+                            <span class="text-lg">Lapor ke Pak Nanda</span>
+                        </div>
+                        <div class="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-green-500/40"><i class="fab fa-whatsapp text-2xl"></i></div>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- ================= DASHBOARD GURU (KOMPLIT) ================= -->
+        <div id="teacher-dashboard" class="hidden fixed inset-0 bg-gray-100 z-50 overflow-y-auto">
+            <div class="bg-slate-900 text-white p-5 sticky top-0 z-50 shadow-lg">
+                <div class="flex justify-between items-center max-w-2xl mx-auto w-full">
+                    <div>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest">Administrator Mode</p>
+                        <h2 class="text-lg font-bold text-yellow-400"><i class="fas fa-chalkboard-teacher mr-2"></i>Dashboard Pak Nanda</h2>
+                    </div>
+                    <button onclick="closeDashboard()" class="bg-slate-800 p-2 rounded-full hover:bg-slate-700 transition"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+
+            <div class="p-5 space-y-6 max-w-2xl mx-auto pb-24">
+                
+                <!-- 1. PERTANYAAN PEMANTIK -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-indigo-600 mb-4 border-b pb-2"><i class="fas fa-question-circle mr-2"></i>Pertanyaan Pemantik</h3>
+                    <div class="space-y-4">
+                        <!-- Sprint -->
+                        <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                            <h4 class="font-bold text-indigo-800 text-sm mb-2">1. Sprint: Analisis Otot</h4>
+                            <p class="text-sm text-gray-700 italic mb-3">"Mengapa badan sprinter berotot besar sedangkan pelari maraton kurus?"</p>
+                            <button onclick="toggleAnswer('ans1')" class="text-xs bg-indigo-600 text-white px-3 py-2 rounded-lg hover:bg-indigo-700 w-full text-left flex justify-between"><span>Buka Kunci</span> <i class="fas fa-chevron-down"></i></button>
+                            <div id="ans1" class="hidden mt-2 p-3 bg-white rounded-lg border border-indigo-200 text-xs text-gray-600">Sprint butuh power otot besar (fast twitch). Maraton butuh efisiensi hemat energi (slow twitch).</div>
+                        </div>
+                        <!-- Menengah -->
+                        <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100">
+                            <h4 class="font-bold text-orange-800 text-sm mb-2">2. Jarak Menengah: Energi</h4>
+                            <p class="text-sm text-gray-700 italic mb-3">"Apa yang terjadi jika sprint 100% dari garis start?"</p>
+                            <button onclick="toggleAnswer('ans2')" class="text-xs bg-orange-600 text-white px-3 py-2 rounded-lg hover:bg-orange-700 w-full text-left flex justify-between"><span>Buka Kunci</span> <i class="fas fa-chevron-down"></i></button>
+                            <div id="ans2" class="hidden mt-2 p-3 bg-white rounded-lg border border-orange-200 text-xs text-gray-600">Tubuh cepat masuk fase anaerobik, asam laktat menumpuk, 'habis bensin' sebelum finish.</div>
+                        </div>
+                        <!-- Jauh -->
+                        <div class="bg-green-50 p-4 rounded-2xl border border-green-100">
+                            <h4 class="font-bold text-green-800 text-sm mb-2">3. Jarak Jauh: Efisiensi</h4>
+                            <p class="text-sm text-gray-700 italic mb-3">"Kenapa langkah pelari jauh pendek-pendek?"</p>
+                            <button onclick="toggleAnswer('ans3')" class="text-xs bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 w-full text-left flex justify-between"><span>Buka Kunci</span> <i class="fas fa-chevron-down"></i></button>
+                            <div id="ans3" class="hidden mt-2 p-3 bg-white rounded-lg border border-green-200 text-xs text-gray-600">Efisiensi energi. Langkah pendek cepat (high cadence) lebih hemat tenaga dibanding langkah lebar.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. PEMANASAN ABC RUNNING -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-red-600 mb-4 border-b pb-2"><i class="fas fa-fire-alt mr-2"></i>Teknik ABC Running</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="bg-red-100 text-red-600 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shrink-0">A</div>
+                            <div><h4 class="font-bold text-sm text-gray-800">Ankling (Jinjit Cepat)</h4><p class="text-xs text-gray-600 mt-1">Fokus engkel aktif. <br><span class="text-red-500 font-bold italic">"Mainkan ujung kaki! Jangan napak tumit!"</span></p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-red-100 text-red-600 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shrink-0">B</div>
+                            <div><h4 class="font-bold text-sm text-gray-800">High Knees (Angkat Paha)</h4><p class="text-xs text-gray-600 mt-1">Paha sejajar rata-rata air. <br><span class="text-red-500 font-bold italic">"Paha naik! Badan tegak!"</span></p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-red-100 text-red-600 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shrink-0">C</div>
+                            <div><h4 class="font-bold text-sm text-gray-800">Butt Kicks (Tumit ke Pantat)</h4><p class="text-xs text-gray-600 mt-1">Lipat kaki ke belakang cepat. <br><span class="text-red-500 font-bold italic">"Tendang pantatnya!"</span></p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SETUP & MANAJEMEN -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
+                        <h3 class="font-bold text-orange-600 mb-2 border-b pb-1 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>Setup Lapangan</h3>
+                        <ul class="text-xs text-gray-600 list-disc ml-4 space-y-1">
+                            <li><strong>Sprint:</strong> Jarak 30-50m. Area finish aman.</li>
+                            <li><strong>Estafet:</strong> Tandai zona 20m dengan kapur.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
+                        <h3 class="font-bold text-purple-600 mb-2 border-b pb-1 text-sm"><i class="fas fa-bullhorn mr-2"></i>Tips Kelas</h3>
+                        <ul class="text-xs text-gray-600 list-disc ml-4 space-y-1">
+                            <li>Peluit: Pendek (Mulai), Panjang (Stop).</li>
+                            <li>Musik: Putar lagu upbeat saat lari jauh.</li>
+                            <li>Game: "Hijau-Hitam" untuk pemanasan.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. DATA SISWA -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-green-600 mb-3 border-b pb-2 flex justify-between items-center">
+                        <span>Data Masuk (Lokal)</span>
+                        <button onclick="clearData()" class="text-xs bg-red-100 text-red-600 px-3 py-1 rounded-full hover:bg-red-200">Reset</button>
+                    </h3>
+                    <div class="overflow-x-auto max-h-60">
+                        <table class="w-full text-sm text-left text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 sticky top-0"><tr><th class="px-4 py-3">Nama</th><th class="px-4 py-3">Kls</th><th class="px-4 py-3">Absen</th></tr></thead>
+                            <tbody id="student-data-body"></tbody>
+                        </table>
+                        <p id="no-data-msg" class="text-center text-xs p-4 text-gray-400">Belum ada siswa kirim tugas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL LOGIN -->
+        <div id="admin-modal" class="hidden fixed inset-0 bg-slate-900/80 z-[60] flex items-center justify-center p-4 backdrop-blur-sm modal">
+            <div class="bg-white rounded-3xl p-8 w-full max-w-sm modal-content relative overflow-hidden text-center shadow-2xl">
+                <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-indigo-600 text-2xl"><i class="fas fa-user-shield"></i></div>
+                <h3 class="text-xl font-bold text-gray-800">Akses Guru</h3>
+                <input type="password" id="admin-pin" class="w-full text-center text-2xl tracking-[0.5em] font-bold border-b-2 border-gray-300 focus:border-indigo-600 outline-none py-3 mb-6" maxlength="6" placeholder="******">
+                <button onclick="checkPin()" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-3 rounded-xl hover:opacity-90 transition shadow-lg">Buka Dashboard</button>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-white border-t border-gray-200 p-8 text-center pb-10">
+            <div class="flex flex-col items-center justify-center gap-2">
+                <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest">PJOK Kurikulum Merdeka</p>
+                <div class="text-xs text-gray-500 font-medium flex items-center gap-1 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
+                    <span>Coded with ⚡ by</span>
+                    <a href="https://instagram.com/nxyxa.27" target="_blank" class="text-pink-600 hover:text-pink-800 font-bold flex items-center gap-1 transition-colors"> NxyxA <i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // === DATA KONTEN (PROFESIONAL & HOTS) ===
+        const contentData = {
+            short: {
+                title: "Sprint & Estafet 🏃💨",
+                video: "https://www.youtube.com/embed/SOq5HBOFwr4", 
+                videoDesc: "Video pembelajaran ini mendemonstrasikan teknik Start Jongkok (Crouch Start) untuk akselerasi maksimal dan teknik pergantian tongkat estafet (Visual Pass) dalam zona wissel 20 meter.",
+                safety: "Pemanasan hamstring wajib! Pastikan lintasan bersih. Jangan berhenti mendadak setelah sprint.",
+                glossary: [
+                    { term: "Start Jongkok", def: "Posisi start dengan lutut menyentuh tanah untuk tolakan maksimal (Sprint)." },
+                    { term: "Visual Pass", def: "Teknik operan tongkat estafet dengan cara penerima melihat ke belakang." },
+                    { term: "Wissel Zone", def: "Area sepanjang 20 meter dimana tongkat estafet wajib berpindah tangan." }
+                ],
+                points: [
+                    "<strong>Start Jongkok:</strong> Memanfaatkan hukum aksi-reaksi Newton untuk dorongan awal.",
+                    "<strong>Ayunan Tangan:</strong> Siku ditekuk 90 derajat, ayun kuat sejajar pinggang.",
+                    "<strong>Tumpuan Kaki:</strong> Gunakan ujung telapak kaki (Ball of foot), bukan tumit.",
+                    "<strong>Estafet:</strong> Fokus pada ketepatan pemberian tongkat di zona wissel."
+                ],
+                guide: `
+                    <ol class="list-decimal ml-4 space-y-3 text-sm text-white/90 leading-relaxed">
+                        <li><strong>Organisasi Tim:</strong> Bentuk tim 4 orang. Tentukan pelari 1 (Start Jongkok), pelari 2, 3, dan 4 (Start Melayang).</li>
+                        <li><strong>Simulasi Zona:</strong> Gunakan cone untuk menandai zona pergantian tongkat (20m).</li>
+                        <li><strong>Drill Teknis:</strong> Lakukan latihan operan tongkat sambil jogging, lalu lari kecepatan 50%.</li>
+                        <li><strong>Kompetisi:</strong> Lakukan lomba estafet antar tim. Fokus: tongkat tidak boleh jatuh!</li>
+                    </ol>
+                `,
+                p5: [
+                    { text: "<strong>Gotong Royong:</strong> Menyelaraskan kecepatan saat memberi/menerima tongkat.", icon: "fa-users" },
+                    { text: "<strong>Integritas:</strong> Melakukan start dengan jujur (tidak mencuri start).", icon: "fa-balance-scale" },
+                    { text: "<strong>Mandiri:</strong> Percaya diri saat berlari di lintasan sendiri.", icon: "fa-bolt" }
+                ],
+                quiz: [
+                    { q: "Seorang pelari estafet menjatuhkan tongkat saat pergantian. Sesuai peraturan atletik, apa tindakan yang sah?", opts: ["Pelari penerima mengambil tongkat", "Pelari yang menjatuhkan harus mengambilnya kembali", "Panitia mengambilkan", "Diskualifikasi langsung"], ans: 1, exp: "Aturan IAAF: Atlet yang menjatuhkan tongkat harus mengambilnya kembali tanpa mengganggu pelari lain." },
+                    { q: "Mengapa posisi panggul pada aba-aba 'Siap' dalam start jongkok harus lebih tinggi dari bahu?", opts: ["Agar terlihat atletis", "Memindahkan titik berat badan ke depan (lengan)", "Agar kaki lebih rileks", "Supaya bisa melihat garis finish"], ans: 1, exp: "Meninggikan panggul memindahkan Center of Gravity ke depan untuk akselerasi awal." },
+                    { q: "Apa fungsi utama gerakan ayunan lengan yang kuat dan bersudut 90 derajat saat sprint?", opts: ["Menjaga keseimbangan tubuh", "Agar terlihat cepat", "Menambah beban lari", "Meregangkan otot dada"], ans: 0, exp: "Ayunan lengan berfungsi menyeimbangkan rotasi pinggul dan kaki." },
+                    { q: "Jika pelari penerima tongkat estafet berangkat terlalu cepat, apa risikonya?", opts: ["Tabrakan", "Gagal oper (tongkat tidak terjangkau)", "Diskualifikasi zona", "Kehabisan napas"], ans: 1, exp: "Penerima akan meninggalkan pemberi, sehingga jarak operan melebihi jangkauan tangan." },
+                    { q: "Teknik mendaratkan kaki yang paling efisien saat sprint adalah...", opts: ["Mendarat dengan tumit (Heel strike)", "Mendarat dengan seluruh telapak", "Mendarat dengan ujung kaki (Ball of foot)", "Mendarat dengan sisi luar"], ans: 2, exp: "Pendaratan Ball of foot meminimalkan pengereman (braking force)." },
+                    { q: "Diskualifikasi dalam lari jarak pendek akan langsung diberikan jika pelari melakukan...", opts: ["Satu kali False Start (Mencuri start)", "Dua kali False Start", "Berteriak saat lari", "Menengok ke belakang"], ans: 0, exp: "Peraturan IAAF terbaru menerapkan toleransi nol (Zero Tolerance) untuk False Start." },
+                    { q: "Mengapa pelari tidak disarankan melompat saat menyentuh garis finish?", opts: ["Berbahaya bagi lutut", "Melompat mengurangi kecepatan horizontal", "Melanggar aturan", "Terlihat tidak profesional"], ans: 1, exp: "Saat melompat (di udara), pelari tidak bisa menambah kecepatan." },
+                    { q: "Tongkat estafet wajib diberikan di area...", opts: ["Sembarang tempat", "Zona wissel (20m)", "Garis finish", "Garis start"], ans: 1, exp: "Wajib di zona pergantian (wissel) sepanjang 20 meter." },
+                    { q: "Pandangan mata saat sprint sebaiknya...", opts: ["Ke bawah terus", "Lurus ke depan", "Tengok kanan kiri", "Ke atas"], ans: 1, exp: "Lurus ke depan menjaga keseimbangan dan relaksasi leher." },
+                    { q: "Komponen kebugaran dominan untuk sprinter adalah...", opts: ["Daya tahan jantung", "Kelenturan", "Kecepatan (Speed) & Daya Ledak (Power)", "Keseimbangan"], ans: 2, exp: "Sprint bergantung pada Speed dan Power otot." }
+                ]
+            },
+            middle: {
+                title: "Jarak Menengah (800m) 🔥",
+                video: "https://www.youtube.com/embed/iUiJqn4AA7E", 
+                videoDesc: "Analisis teknik lari 800 meter yang menekankan pada strategi Pacing (pengaturan irama), teknik Start Berdiri yang efisien, dan manajemen energi.",
+                safety: "Jangan berhenti mendadak setelah lari kencang, jalan kaki dulu agar darah tidak menumpuk di kaki.",
+                glossary: [
+                    { term: "Start Berdiri", def: "Posisi start dengan berdiri (satu kaki di depan), digunakan untuk lari >800m." },
+                    { term: "Pacing", def: "Strategi mengatur kecepatan lari agar tenaga tidak habis di awal." },
+                    { term: "Kick", def: "Akselerasi (sprint) penghabisan saat mendekati garis finish." }
+                ],
+                points: [
+                    "<strong>Start Berdiri:</strong> Posisi kaki melangkah, berat badan di kaki depan.",
+                    "<strong>Pacing (Irama):</strong> Menjaga kecepatan stabil di lap pertama.",
+                    "<strong>Posisi Badan:</strong> Lebih tegak dan rileks dibanding sprint.",
+                    "<strong>Tikungan:</strong> Lari sedekat mungkin dengan garis dalam."
+                ],
+                guide: `
+                    <ol class="list-decimal ml-4 space-y-3 text-sm text-white/90 leading-relaxed">
+                        <li><strong>Pemanasan Spesifik:</strong> Lakukan jogging 400m diikuti ABC Running drill.</li>
+                        <li><strong>Latihan Interval:</strong> Lari 200m dengan kecepatan lomba, istirahat jalan 1 menit.</li>
+                        <li><strong>Simulasi 800m:</strong> Lari 2 putaran penuh dengan kecepatan stabil (Pacing).</li>
+                        <li><strong>Evaluasi:</strong> Cek denyut nadi segera setelah finish.</li>
+                    </ol>
+                `,
+                p5: [
+                    { text: "<strong>Tangguh (Resiliensi):</strong> Bertahan mempertahankan kecepatan saat lelah.", icon: "fa-dumbbell" },
+                    { text: "<strong>Disiplin:</strong> Konsisten menjaga irama lari (Pacing).", icon: "fa-clock" },
+                    { text: "<strong>Bernalar Kritis:</strong> Mengatur strategi penggunaan tenaga.", icon: "fa-brain" }
+                ],
+                quiz: [
+                    { q: "Lari 800 meter sering disebut 'Killer Event' karena menggunakan sistem energi...", opts: ["Aerobik murni", "Anaerobik murni", "Campuran dominan Anaerobik Laktat", "Fosfagen"], ans: 2, exp: "800m menuntut kerja maksimal di ambang batas toleransi asam laktat." },
+                    { q: "Mengapa start jongkok tidak digunakan dalam lari 800m?", opts: ["Dilarang peraturan", "Kurang efisien (membuang energi)", "Hanya untuk estafet", "Menyebabkan kram"], ans: 1, exp: "Start jongkok membuang energi berlebih yang tidak diperlukan untuk pace 800m." },
+                    { q: "Strategi 'Even Split' berarti...", opts: ["Lari secepat mungkin lalu melambat", "Lari lambat lalu sprint", "Berlari dengan kecepatan relatif sama di setiap putaran", "Berlari zig-zag"], ans: 2, exp: "Even Split adalah strategi paling efisien untuk mencapai waktu terbaik." },
+                    { q: "Posisi tubuh yang benar saat lari jarak menengah adalah...", opts: ["Condong ke depan ekstrim", "Tegak lurus dengan sedikit condong ke depan", "Membungkuk ke belakang", "Miring"], ans: 1, exp: "Posisi tegak memudahkan ekspansi paru-paru." },
+                    { q: "Apa keuntungan berlari di lintasan terdalam saat tikungan?", opts: ["Lintasannya lebih keras", "Jarak tempuhnya paling pendek", "Bisa melihat lawan", "Terhindar dari angin"], ans: 1, exp: "Setiap lintasan keluar menambah jarak tempuh. Lane 1 adalah rute terpendek." },
+                    { q: "Gejala 'Heavy Legs' di akhir lari disebabkan oleh...", opts: ["Oksigen", "Penumpukan Asam Laktat", "Glukosa", "Adrenalin"], ans: 1, exp: "Asam laktat menghambat kontraksi otot." },
+                    { q: "Teknik pendaratan kaki untuk jarak menengah adalah...", opts: ["Heel Strike (Tumit)", "Mid-foot Strike (Tengah telapak)", "Toe Strike (Jinjit)", "Side Strike"], ans: 1, exp: "Mid-foot strike memberikan keseimbangan antara kecepatan dan efisiensi." },
+                    { q: "Fungsi ayunan lengan pada lari jarak menengah adalah...", opts: ["Menciptakan daya dorong besar", "Menjaga ritme dan keseimbangan dengan rileks", "Menghalau lawan", "Gaya"], ans: 1, exp: "Ayunan lengan harus rileks untuk menghemat energi." },
+                    { q: "Kapan sebaiknya mulai melakukan 'Kick' (sprint akhir)?", opts: ["Di 400m pertama", "Saat start", "Sekitar 100-200m menjelang finish", "Setelah finish"], ans: 2, exp: "Kick dilakukan saat sisa energi dikerahkan habis-habisan menuju finish." },
+                    { q: "Sepatu lari jarak menengah biasanya memiliki...", opts: ["Sol tebal berat", "Paku (spikes) di depan dan sedikit bantalan tumit", "Tanpa sol", "Boots"], ans: 1, exp: "Memiliki paku untuk traksi tapi juga bantalan untuk perlindungan." }
+                ]
+            },
+            long: {
+                title: "Jarak Jauh (Endurance) 🔋",
+                video: "https://www.youtube.com/embed/HjsA7LErfww", 
+                videoDesc: "Studi mendalam tentang lari jarak jauh: Pentingnya Cadence (frekuensi langkah) tinggi, teknik pernapasan diafragma, dan efisiensi biomekanika.",
+                safety: "Jaga hidrasi (minum) sedikit demi sedikit. Jika dada sakit atau sesak, segera jalan kaki.",
+                glossary: [
+                    { term: "Endurance", def: "Daya tahan jantung dan paru-paru untuk aktivitas lama." },
+                    { term: "Cadence", def: "Jumlah langkah kaki per menit. Semakin tinggi, semakin efisien." },
+                    { term: "Mid-foot Strike", def: "Teknik mendaratkan kaki bagian tengah rata." }
+                ],
+                points: [
+                    "<strong>Efisien:</strong> Langkah pendek namun frekuensi tinggi (High Cadence).",
+                    "<strong>Napas Ritmik:</strong> Sinkronisasi napas dengan langkah (pola 2:2).",
+                    "<strong>Mid-foot Strike:</strong> Mendarat dengan telapak tengah untuk meredam benturan.",
+                    "<strong>Mentalitas:</strong> Tetap tenang dan rileks walau lelah."
+                ],
+                guide: `
+                    <ol class="list-decimal ml-4 space-y-3 text-sm text-white/90 leading-relaxed">
+                        <li><strong>Tantangan Durasi:</strong> Lakukan lari kontinyu (Jogging) selama 10-15 menit NON-STOP.</li>
+                        <li><strong>Fokus Teknik:</strong> Cek postur bahu (jangan tegang) dan dengarkan langkah kaki (harus senyap).</li>
+                        <li><strong>Aturan Emas:</strong> Jika lelah, perlambat lari, tapi JANGAN JALAN KAKI.</li>
+                        <li><strong>Pendinginan:</strong> Wajib jalan kaki 2 menit setelah selesai.</li>
+                    </ol>
+                `,
+                p5: [
+                    { text: "<strong>Beriman:</strong> Mensyukuri kesehatan fisik dengan menjaga kebugaran.", icon: "fa-pray" },
+                    { text: "<strong>Kemandirian:</strong> Memotivasi diri sendiri saat menghadapi titik jenuh.", icon: "fa-heart" },
+                    { text: "<strong>Kreatif:</strong> Menemukan pola napas yang paling nyaman.", icon: "fa-lightbulb" }
+                ],
+                quiz: [
+                    { q: "Dalam lari jarak jauh, mengapa langkah terlalu lebar (Overstriding) harus dihindari?", opts: ["Terlalu cepat", "Menyebabkan gaya pengereman dan cedera lutut", "Terlihat jelek", "Melanggar aturan"], ans: 1, exp: "Mendaratkan kaki jauh di depan tubuh bertindak sebagai rem dan membebani lutut." },
+                    { q: "VO2 Max adalah indikator untuk...", opts: ["Kecepatan maksimal", "Volume oksigen maksimal yang diproses tubuh", "Detak jantung maksimal", "Kapasitas paru"], ans: 1, exp: "VO2 Max adalah indikator utama kebugaran aerobik." },
+                    { q: "Pola pernapasan 2:2 dalam lari berarti...", opts: ["2 tarik napas panjang, 2 buang panjang", "Tarik napas 2 langkah, buang napas 2 langkah", "Lewat 2 lubang hidung", "Bernapas tiap 2 menit"], ans: 1, exp: "Membantu mensinkronkan diafragma dengan benturan kaki." },
+                    { q: "Sumber energi utama lari maraton adalah...", opts: ["Kreatin Fosfat", "Glikogen otot dan Lemak (Aerobik)", "Protein", "Vitamin"], ans: 1, exp: "Sistem aerobik membakar lemak dan glikogen dengan oksigen." },
+                    { q: "Mengapa pendinginan wajib dilakukan?", opts: ["Biar lapar", "Membantu darah kembali ke jantung (Venous Return)", "Membesarkan otot", "Tidak bermanfaat"], ans: 1, exp: "Mencegah darah menumpuk di kaki (pooling) yang memicu pusing." },
+                    { q: "Fungsi bantalan tebal pada sepatu lari jarak jauh adalah...", opts: ["Agar tinggi", "Menambah berat", "Menyerap guncangan (Shock Absorption)", "Supaya cepat"], ans: 2, exp: "Melindungi sendi dari ribuan benturan." },
+                    { q: "Jika mengalami kram perut (Side Stitch), pertolongannya adalah...", opts: ["Berhenti total", "Perlambat, tekan area nyeri, atur napas", "Minum banyak", "Lari cepat"], ans: 1, exp: "Mengatur napas dan melambat membantu merelaksasi diafragma." },
+                    { q: "Start untuk lari 5.000m adalah...", opts: ["Jongkok", "Melayang", "Berdiri", "Duduk"], ans: 2, exp: "Semua lari jarak jauh menggunakan Start Berdiri." },
+                    { q: "Strategi hidrasi yang tepat saat maraton...", opts: ["Tidak minum", "Minum sedikit tapi sering", "Minum banyak sekaligus", "Hanya di finish"], ans: 1, exp: "Mencegah dehidrasi tanpa menyebabkan perut kembung." },
+                    { q: "Istilah 'Hitting the Wall' artinya...", opts: ["Menabrak tembok", "Kehabisan cadangan glikogen mendadak", "Kaki kram", "Sepatu rusak"], ans: 1, exp: "Kelelahan ekstrem akibat habisnya bahan bakar karbohidrat." }
+                ]
+            }
+        };
+
+        let currentTab = 'short';
+        let currentScore = 0; 
+
+        // --- CORE FUNCTIONS ---
+        document.getElementById('identity-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('student-name').value;
+            const number = document.getElementById('student-number').value;
+            if(name && number){
+                document.getElementById('identity-section').classList.add('hidden');
+                document.getElementById('top-header').classList.add('hidden'); 
+                const mainContent = document.getElementById('main-content');
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('fade-in', 'flex'); 
+                renderContent('short');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        function switchTab(type) {
+            currentTab = type;
+            ['short', 'middle', 'long'].forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === type) {
+                    btn.classList.add('tab-active', 'shadow-md', 'scale-105');
+                    btn.classList.remove('tab-inactive', 'hover:bg-gray-50');
+                } else {
+                    btn.classList.add('tab-inactive', 'hover:bg-gray-50');
+                    btn.classList.remove('tab-active', 'shadow-md', 'scale-105');
+                }
+            });
+            const section = document.getElementById('material-section');
+            section.classList.remove('fade-in');
+            void section.offsetWidth; 
+            section.classList.add('fade-in');
+            renderContent(type);
+        }
+
+        function renderContent(type) {
+            const data = contentData[type];
+            currentScore = 0; 
+            document.getElementById('material-title').innerText = data.title;
+            document.getElementById('video-embed').src = data.video;
+            document.getElementById('video-desc').innerText = data.videoDesc;
+            document.getElementById('safety-text').innerText = data.safety;
+            
+            const glossaryContainer = document.getElementById('glossary-container');
+            glossaryContainer.innerHTML = '';
+            data.glossary.forEach(g => {
+                glossaryContainer.innerHTML += `<div class="bg-gray-50 p-3 rounded-xl border border-gray-100"><span class="font-bold text-indigo-600 block text-xs uppercase mb-1">${g.term}</span><span class="text-gray-600 leading-tight">${g.def}</span></div>`;
+            });
+
+            const pointsList = document.getElementById('key-points');
+            pointsList.innerHTML = '';
+            data.points.forEach(p => pointsList.innerHTML += `<li class="text-sm text-gray-700 leading-relaxed flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i> <span>${p}</span></li>`);
+            
+            document.getElementById('practice-guide-content').innerHTML = data.guide;
+            document.getElementById('input-cerita').value = ''; 
+            document.getElementById('input-refleksi').value = ''; 
+
+            const p5Container = document.getElementById('p5-checklist-container');
+            p5Container.innerHTML = '';
+            data.p5.forEach(item => {
+                p5Container.innerHTML += `<label class="flex items-start space-x-3 cursor-pointer bg-white p-4 rounded-2xl border-2 border-transparent hover:border-blue-400 hover:shadow-lg transition-all group shadow-sm"><div class="relative mt-1"><input type="checkbox" class="peer sr-only"><div class="w-6 h-6 border-2 border-gray-300 rounded-lg peer-checked:bg-blue-500 peer-checked:border-blue-500 transition-all flex items-center justify-center"><i class="fas fa-check text-white text-xs opacity-0 peer-checked:opacity-100"></i></div></div><div class="flex flex-col gap-1 text-sm text-gray-700 font-medium group-hover:text-blue-600"><div class="flex items-center gap-2 text-indigo-500 text-xs font-bold uppercase"><i class="fas ${item.icon}"></i></div><span>${item.text}</span></div></label>`;
+            });
+
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = '';
+            data.quiz.forEach((q, idx) => {
+                let optsHtml = '';
+                q.opts.forEach((opt, optIdx) => {
+                    optsHtml += `<button onclick="checkAnswer(this, ${idx}, ${optIdx}, ${q.ans}, '${q.exp.replace(/'/g, "\\'")}')" class="quiz-btn-${idx} w-full text-left p-4 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:border-blue-200 hover:bg-blue-50 transition-all text-sm mb-2 relative group font-medium text-gray-600"><span class="font-bold text-gray-400 mr-2 group-hover:text-blue-500 bg-gray-100 w-6 h-6 inline-flex items-center justify-center rounded-lg text-xs">${String.fromCharCode(65+optIdx)}</span> ${opt}</button>`;
+                });
+                quizContainer.innerHTML += `<div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden group hover:shadow-md transition-all"><div class="absolute top-0 right-0 bg-blue-100 text-blue-600 text-[10px] px-3 py-1 rounded-bl-2xl font-bold uppercase tracking-wider">Soal ${idx+1}</div><p class="font-bold text-gray-800 text-sm mb-4 pr-6 leading-relaxed">${q.q}</p><div class="mb-1 flex flex-col gap-1">${optsHtml}</div><div id="feedback-${idx}" class="hidden text-xs p-4 rounded-xl mt-2 bg-gray-50 border border-gray-200 animate-pulse font-medium"></div></div>`;
+            });
+        }
+
+        function checkAnswer(btn, qIndex, selectedIdx, correctIdx, explanation) {
+            if (btn.classList.contains('cursor-not-allowed')) return;
+            const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+            const allBtns = document.querySelectorAll(`.quiz-btn-${qIndex}`);
+            allBtns.forEach(b => { b.disabled = true; b.classList.add('opacity-50', 'cursor-not-allowed'); b.classList.remove('hover:bg-blue-50', 'hover:shadow-md'); });
+            feedbackEl.classList.remove('animate-pulse');
+            
+            if (selectedIdx === correctIdx) {
+                btn.classList.remove('opacity-50', 'bg-white'); btn.classList.add('bg-green-100', 'border-green-500', 'text-green-800', 'font-bold');
+                feedbackEl.innerHTML = `<span class="text-green-600 font-bold text-sm block mb-1"><i class="fas fa-check-circle"></i> Mantul! Benar banget.</span> ${explanation}`;
+                feedbackEl.classList.add('bg-green-50', 'border-green-200'); currentScore += 10; 
+            } else {
+                btn.classList.remove('opacity-50', 'bg-white'); btn.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                allBtns[correctIdx].classList.remove('opacity-50', 'bg-white'); allBtns[correctIdx].classList.add('bg-green-100', 'border-green-500', 'text-green-800', 'font-bold');
+                feedbackEl.innerHTML = `<span class="text-red-500 font-bold text-sm block mb-1"><i class="fas fa-times-circle"></i> Ups, kurang tepat.</span> ${explanation}`;
+                feedbackEl.classList.add('bg-red-50', 'border-red-200');
+            }
+            feedbackEl.classList.remove('hidden');
+        }
+
+        // --- DASHBOARD LOGIC ---
+        function openAdminModal() { document.getElementById('admin-modal').classList.remove('hidden'); document.getElementById('admin-pin').focus(); }
+        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); document.getElementById('admin-pin').value = ''; }
+        function checkPin() { 
+            if (document.getElementById('admin-pin').value === "270302") { 
+                closeAdminModal(); document.getElementById('teacher-dashboard').classList.remove('hidden'); loadStudentData(); 
+            } else { alert("PIN Salah! Coba lagi Pak."); } 
+        }
+        function closeDashboard() { document.getElementById('teacher-dashboard').classList.add('hidden'); }
+        function toggleAnswer(id) { const el = document.getElementById(id); el.classList.toggle('hidden'); }
+
+        // --- SUBMIT & DATA ---
+        function submitLKPD() {
+            const nomorGuru = "6285709808532"; 
+            const nama = document.getElementById('student-name').value;
+            const kelas = document.getElementById('student-class').value;
+            const absen = document.getElementById('student-number').value;
+            const cerita = document.getElementById('input-cerita').value || "Belum ada cerita seru nih.";
+            const refleksi = document.getElementById('input-refleksi').value || "-";
+            
+            let p5Checked = [];
+            document.querySelectorAll('#p5-checklist-container input:checked').forEach(cb => { 
+                let text = cb.closest('label').querySelector('span').innerText;
+                p5Checked.push("⭐ " + text); 
+            });
+            const p5Text = p5Checked.length ? p5Checked.join("%0A") : "-";
+
+            // Local Storage
+            const studentEntry = { nama, kelas, absen, materi: contentData[currentTab].title, timestamp: new Date().toISOString() };
+            let existingData = JSON.parse(localStorage.getItem('pjokData')) || [];
+            existingData.push(studentEntry);
+            localStorage.setItem('pjokData', JSON.stringify(existingData));
+
+            // WA Message (Encoded for safety)
+            let pesan = `*LAPORAN MISI PJOK 🚀*\n`;
+            pesan += `Materi: ${contentData[currentTab].title.toUpperCase()}\n`;
+            pesan += `----------------------------------\n`;
+            pesan += `😎 *Agent:* ${nama}\n`;
+            pesan += `🏫 *Base:* ${kelas} / No. ${absen}\n`;
+            pesan += `----------------------------------\n`;
+            pesan += `📢 *STORY LAPANGAN:*\n_"${cerita}"_\n\n`;
+            pesan += `💭 *REFLEKSI DIRI:*\n_"${refleksi}"_\n\n`;
+            pesan += `💯 *SKOR QUIZ: ${currentScore} / 100*\n`;
+            pesan += `🆙 *LEVEL UP KARAKTER:*\n${p5Text}\n`;
+            pesan += `----------------------------------\n_Dikirim via App PJOK Pak Nanda_`;
+
+            if(confirm(`Yakin udah selesai semua misinya? Kirim laporan ke Pak Nanda sekarang?`)) { 
+                window.open(`https://wa.me/${nomorGuru}?text=${encodeURIComponent(pesan)}`, '_blank'); 
+            }
+        }
+
+        function loadStudentData() {
+            const data = JSON.parse(localStorage.getItem('pjokData')) || [];
+            const tbody = document.getElementById('student-data-body');
+            const noDataMsg = document.getElementById('no-data-msg');
+            tbody.innerHTML = '';
+            if (data.length > 0) {
+                noDataMsg.classList.add('hidden');
+                data.reverse().forEach(student => {
+                    const time = new Date(student.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    tbody.innerHTML += `<tr class="bg-white border-b hover:bg-slate-50"><td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">${student.nama} <span class="text-xs text-gray-400">(${time})</span></td><td class="px-4 py-3">${student.kelas}</td><td class="px-4 py-3 text-center">${student.absen}</td></tr>`;
+                });
+            } else { noDataMsg.classList.remove('hidden'); }
+        }
+        function clearData() { if(confirm("Hapus semua data siswa di perangkat ini?")) { localStorage.removeItem('pjokData'); loadStudentData(); } }
+    </script>
+</body>
+</html>
+
