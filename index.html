@@ -258,7 +258,7 @@
             </div>
         </main>
 
-        <!-- ================= DASHBOARD GURU (KOMPLIT) ================= -->
+        <!-- ================= DASHBOARD GURU (FULL FEATURES UPDATE) ================= -->
         <div id="teacher-dashboard" class="hidden fixed inset-0 bg-gray-100 z-50 overflow-y-auto">
             <div class="bg-slate-900 text-white p-5 sticky top-0 z-50 shadow-lg">
                 <div class="flex justify-between items-center max-w-2xl mx-auto w-full">
@@ -272,73 +272,162 @@
 
             <div class="p-5 space-y-6 max-w-2xl mx-auto pb-24">
                 
-                <!-- 1. PERTANYAAN PEMANTIK -->
+                <!-- 1. TAHAPAN PEMANASAN & PENDINGINAN (LENGKAP) -->
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
-                    <h3 class="font-bold text-indigo-600 mb-4 border-b pb-2"><i class="fas fa-question-circle mr-2"></i>Pertanyaan Pemantik</h3>
+                    <h3 class="font-bold text-red-600 mb-4 border-b pb-2"><i class="fas fa-heartbeat mr-2"></i>Protokol Pemanasan & Pendinginan</h3>
+                    
+                    <div class="space-y-4 text-sm">
+                        <!-- Pemanasan -->
+                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                            <h4 class="font-bold text-red-800 mb-2 uppercase text-xs tracking-wider">🔥 Pemanasan (Warm Up) - 15 Menit</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><span>1.</span> <strong>General Warm-up:</strong> Jogging santai keliling lapangan (3-5 menit) untuk menaikkan suhu tubuh.</li>
+                                <li class="flex gap-2"><span>2.</span> <strong>Statis:</strong> Peregangan otot leher, bahu, pinggang, hamstring, betis (tahan 8 hitungan).</li>
+                                <li class="flex gap-2"><span>3.</span> <strong>Dinamis:</strong> Gerakan aktif seperti arm circles, leg swings, lunge walk.</li>
+                                <li class="flex gap-2"><span>4.</span> <strong>Spesifik (ABC Running):</strong> Drill teknik lari sejauh 15 meter x 2 set.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Pendinginan -->
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-blue-800 mb-2 uppercase text-xs tracking-wider">❄️ Pendinginan (Cooling Down) - 10 Menit</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><span>1.</span> <strong>Low Intensity:</strong> Jalan kaki santai tanpa henti sampai napas normal (2-3 menit).</li>
+                                <li class="flex gap-2"><span>2.</span> <strong>Static Stretching:</strong> Fokus pada otot kaki (Quadriceps, Hamstring, Gastrocnemius). Tahan 15-20 detik.</li>
+                                <li class="flex gap-2"><span>3.</span> <strong>Shaking:</strong> Duduk luruskan kaki, getarkan otot paha dan betis untuk melemaskan laktat.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ENSIKLOPEDIA ABC RUNNING (DETAIL GERAKAN) -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-orange-600 mb-4 border-b pb-2"><i class="fas fa-running mr-2"></i>Teknik ABC Running (Drill)</h3>
+                    <div class="grid gap-4 text-sm">
+                        
+                        <div class="border p-3 rounded-lg bg-slate-50">
+                            <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2"><span class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded">A-Line</span> Angkling (Jalan Jinjit)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Berjalan jinjit maju dengan tumpuan pada bola kaki (ujung telapak), mengayunkan lengan bergantian. <strong>Tujuan:</strong> Melatih kekuatan pergelangan kaki dan pendaratan yang benar.</p>
+                        </div>
+
+                        <div class="border p-3 rounded-lg bg-slate-50">
+                            <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2"><span class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded">B-Line</span> Butt Kick (Tumit ke Pantat)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Berlari di tempat atau maju perlahan dengan tumit diangkat ke belakang hingga menyentuh bokong secara bergantian. Paha tetap tegak lurus ke bawah.</p>
+                        </div>
+
+                        <div class="border p-3 rounded-lg bg-slate-50">
+                            <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2"><span class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded">C-Line</span> High Knee (Angkat Paha)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Mengangkat lutut tinggi ke depan secara bergantian (sejajar rata-rata air), seperti berlari di tempat tapi lutut diangkat lebih tinggi. Badan tegak.</p>
+                        </div>
+
+                        <div class="border p-3 rounded-lg bg-slate-50">
+                            <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2"><span class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded">Drill</span> Kicking (Straight Leg)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Menendang kaki lurus ke depan setinggi mata kaki/lutut secara bergantian. Fokus pada kaki yang lurus (kunci lutut) dan aktifkan engkel saat mendarat.</p>
+                        </div>
+
+                        <div class="border p-3 rounded-lg bg-slate-50">
+                            <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2"><span class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded">Drill</span> Bounding (Lompat Kijang)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Melompat ke depan secara horizontal dengan kaki bergantian, mirip lompatan kijang. Fokus pada dorongan kuat ke depan dan melayang di udara.</p>
+                        </div>
+
+                        <div class="border p-3 rounded-lg bg-slate-50">
+                            <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2"><span class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded">Drill</span> Skipping (Touch Bounding)</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Melompat ke depan menggunakan dua kaki dengan ritme hop-step, satu kaki ditekuk 90 derajat di udara saat melayang.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3. BANK PERTANYAAN PEMANTIK (3 SOAL PER NOMOR) -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-indigo-600 mb-4 border-b pb-2"><i class="fas fa-question-circle mr-2"></i>Pertanyaan Pemantik (3 per Nomor)</h3>
                     <div class="space-y-4">
-                        <!-- Sprint -->
+                        
+                        <!-- SPRINT -->
                         <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
-                            <h4 class="font-bold text-indigo-800 text-sm mb-2">1. Sprint: Analisis Otot</h4>
-                            <p class="text-sm text-gray-700 italic mb-3">"Mengapa badan sprinter berotot besar sedangkan pelari maraton kurus?"</p>
-                            <button onclick="toggleAnswer('ans1')" class="text-xs bg-indigo-600 text-white px-3 py-2 rounded-lg hover:bg-indigo-700 w-full text-left flex justify-between"><span>Buka Kunci</span> <i class="fas fa-chevron-down"></i></button>
-                            <div id="ans1" class="hidden mt-2 p-3 bg-white rounded-lg border border-indigo-200 text-xs text-gray-600">Sprint butuh power otot besar (fast twitch). Maraton butuh efisiensi hemat energi (slow twitch).</div>
+                            <div class="flex items-center gap-2 mb-2"><span class="bg-indigo-200 text-indigo-700 text-xs px-2 py-1 rounded font-bold">Sprint</span></div>
+                            <ul class="text-sm text-gray-700 space-y-3">
+                                <li>
+                                    <p class="italic mb-1">1. "Mengapa badan sprinter berotot besar sedangkan pelari maraton kurus?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-indigo-200 text-gray-500"><strong>Jawab:</strong> Sprint butuh power otot besar (fast twitch). Maraton butuh efisiensi hemat energi.</p>
+                                </li>
+                                <li>
+                                    <p class="italic mb-1">2. "Kenapa start jongkok lebih efektif daripada start berdiri untuk jarak 100m?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-indigo-200 text-gray-500"><strong>Jawab:</strong> Memanipulasi titik berat badan ke depan dan memanfaatkan hukum aksi-reaksi untuk dorongan maksimal.</p>
+                                </li>
+                                <li>
+                                    <p class="italic mb-1">3. "Apa yang terjadi jika pelari menegakkan badan terlalu cepat saat keluar dari balok start?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-indigo-200 text-gray-500"><strong>Jawab:</strong> Hambatan angin akan menahan tubuh (drag), sehingga momentum akselerasi hilang.</p>
+                                </li>
+                            </ul>
                         </div>
-                        <!-- Menengah -->
+
+                        <!-- MENENGAH -->
                         <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100">
-                            <h4 class="font-bold text-orange-800 text-sm mb-2">2. Jarak Menengah: Energi</h4>
-                            <p class="text-sm text-gray-700 italic mb-3">"Apa yang terjadi jika sprint 100% dari garis start?"</p>
-                            <button onclick="toggleAnswer('ans2')" class="text-xs bg-orange-600 text-white px-3 py-2 rounded-lg hover:bg-orange-700 w-full text-left flex justify-between"><span>Buka Kunci</span> <i class="fas fa-chevron-down"></i></button>
-                            <div id="ans2" class="hidden mt-2 p-3 bg-white rounded-lg border border-orange-200 text-xs text-gray-600">Tubuh cepat masuk fase anaerobik, asam laktat menumpuk, 'habis bensin' sebelum finish.</div>
+                            <div class="flex items-center gap-2 mb-2"><span class="bg-orange-200 text-orange-700 text-xs px-2 py-1 rounded font-bold">800m</span></div>
+                            <ul class="text-sm text-gray-700 space-y-3">
+                                <li>
+                                    <p class="italic mb-1">1. "Apa yang terjadi jika sprint 100% dari garis start?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-orange-200 text-gray-500"><strong>Jawab:</strong> Tubuh cepat masuk fase anaerobik, asam laktat menumpuk, 'habis bensin' sebelum finish.</p>
+                                </li>
+                                <li>
+                                    <p class="italic mb-1">2. "Mengapa lari di lintasan 1 (terdalam) sangat diperebutkan setelah tikungan pertama?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-orange-200 text-gray-500"><strong>Jawab:</strong> Karena lintasan 1 adalah jarak terpendek (tepat 400m). Lintasan luar menambah jarak tempuh.</p>
+                                </li>
+                                <li>
+                                    <p class="italic mb-1">3. "Bagaimana posisi tubuh yang efisien saat lari 800m dibandingkan sprint?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-orange-200 text-gray-500"><strong>Jawab:</strong> Lebih tegak dan rileks untuk memudahkan ekspansi paru-paru dan pernapasan.</p>
+                                </li>
+                            </ul>
                         </div>
-                        <!-- Jauh -->
+
+                        <!-- JAUH -->
                         <div class="bg-green-50 p-4 rounded-2xl border border-green-100">
-                            <h4 class="font-bold text-green-800 text-sm mb-2">3. Jarak Jauh: Efisiensi</h4>
-                            <p class="text-sm text-gray-700 italic mb-3">"Kenapa langkah pelari jauh pendek-pendek?"</p>
-                            <button onclick="toggleAnswer('ans3')" class="text-xs bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 w-full text-left flex justify-between"><span>Buka Kunci</span> <i class="fas fa-chevron-down"></i></button>
-                            <div id="ans3" class="hidden mt-2 p-3 bg-white rounded-lg border border-green-200 text-xs text-gray-600">Efisiensi energi. Langkah pendek cepat (high cadence) lebih hemat tenaga dibanding langkah lebar.</div>
+                            <div class="flex items-center gap-2 mb-2"><span class="bg-green-200 text-green-700 text-xs px-2 py-1 rounded font-bold">Jarak Jauh</span></div>
+                            <ul class="text-sm text-gray-700 space-y-3">
+                                <li>
+                                    <p class="italic mb-1">1. "Kenapa langkah pelari jauh pendek-pendek?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-green-200 text-gray-500"><strong>Jawab:</strong> Efisiensi energi. Langkah pendek cepat (high cadence) lebih hemat tenaga dan aman bagi sendi.</p>
+                                </li>
+                                <li>
+                                    <p class="italic mb-1">2. "Mengapa kita tidak boleh menahan napas saat lari jarak jauh?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-green-200 text-gray-500"><strong>Jawab:</strong> Menyebabkan hutang oksigen, otot cepat lelah, dan risiko kram perut (side stitch).</p>
+                                </li>
+                                <li>
+                                    <p class="italic mb-1">3. "Apa fungsi ayunan tangan yang rendah dan rileks?"</p>
+                                    <p class="text-xs bg-white p-2 rounded border border-green-200 text-gray-500"><strong>Jawab:</strong> Menghemat energi otot bahu dan leher agar tidak tegang selama durasi lari yang lama.</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. PEMANASAN ABC RUNNING -->
+                <!-- 4. SETUP LAPANGAN & TIPS KELAS (PER KATEGORI) -->
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
-                    <h3 class="font-bold text-red-600 mb-4 border-b pb-2"><i class="fas fa-fire-alt mr-2"></i>Teknik ABC Running</h3>
-                    <div class="space-y-4">
-                        <div class="flex gap-4">
-                            <div class="bg-red-100 text-red-600 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shrink-0">A</div>
-                            <div><h4 class="font-bold text-sm text-gray-800">Ankling (Jinjit Cepat)</h4><p class="text-xs text-gray-600 mt-1">Fokus engkel aktif. <br><span class="text-red-500 font-bold italic">"Mainkan ujung kaki! Jangan napak tumit!"</span></p></div>
+                    <h3 class="font-bold text-purple-600 mb-4 border-b pb-2"><i class="fas fa-map-marked-alt mr-2"></i>Setup & Tips Kelas Spesifik</h3>
+                    
+                    <div class="grid gap-4">
+                        <div class="border-l-4 border-indigo-500 pl-3">
+                            <h4 class="font-bold text-sm text-indigo-700">Sprint & Estafet</h4>
+                            <p class="text-xs text-gray-600 mt-1"><strong>Setup:</strong> Lintasan lurus 50m. Pasang Cone Start dan Finish. Untuk Estafet, tandai Zona 20m dengan kapur.</p>
+                            <p class="text-xs text-gray-600 mt-1"><strong>Tips Kelas:</strong> Gunakan peluit untuk melatih reaksi. Bagi siswa berpasangan untuk koreksi start.</p>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="bg-red-100 text-red-600 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shrink-0">B</div>
-                            <div><h4 class="font-bold text-sm text-gray-800">High Knees (Angkat Paha)</h4><p class="text-xs text-gray-600 mt-1">Paha sejajar rata-rata air. <br><span class="text-red-500 font-bold italic">"Paha naik! Badan tegak!"</span></p></div>
+
+                        <div class="border-l-4 border-orange-500 pl-3">
+                            <h4 class="font-bold text-sm text-orange-700">Jarak Menengah (800m)</h4>
+                            <p class="text-xs text-gray-600 mt-1"><strong>Setup:</strong> Gunakan keliling lapangan sepak bola/basket. Buat titik start melengkung.</p>
+                            <p class="text-xs text-gray-600 mt-1"><strong>Tips Kelas:</strong> Latihan "Tepuk Irama". Guru bertepuk tangan stabil, siswa lari mengikuti tempo tepukan (Pacing).</p>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="bg-red-100 text-red-600 w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shrink-0">C</div>
-                            <div><h4 class="font-bold text-sm text-gray-800">Butt Kicks (Tumit ke Pantat)</h4><p class="text-xs text-gray-600 mt-1">Lipat kaki ke belakang cepat. <br><span class="text-red-500 font-bold italic">"Tendang pantatnya!"</span></p></div>
+
+                        <div class="border-l-4 border-green-500 pl-3">
+                            <h4 class="font-bold text-sm text-green-700">Jarak Jauh (Endurance)</h4>
+                            <p class="text-xs text-gray-600 mt-1"><strong>Setup:</strong> Rute keliling sekolah atau lapangan luas. Siapkan satu meja sebagai "Pos Minum" simulasi.</p>
+                            <p class="text-xs text-gray-600 mt-1"><strong>Tips Kelas:</strong> Putar musik semangat/upbeat. Izinkan siswa lari sambil ngobrol (Talk Test) untuk memastikan pace aerobik.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3. SETUP & MANAJEMEN -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
-                        <h3 class="font-bold text-orange-600 mb-2 border-b pb-1 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>Setup Lapangan</h3>
-                        <ul class="text-xs text-gray-600 list-disc ml-4 space-y-1">
-                            <li><strong>Sprint:</strong> Jarak 30-50m. Area finish aman.</li>
-                            <li><strong>Estafet:</strong> Tandai zona 20m dengan kapur.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
-                        <h3 class="font-bold text-purple-600 mb-2 border-b pb-1 text-sm"><i class="fas fa-bullhorn mr-2"></i>Tips Kelas</h3>
-                        <ul class="text-xs text-gray-600 list-disc ml-4 space-y-1">
-                            <li>Peluit: Pendek (Mulai), Panjang (Stop).</li>
-                            <li>Musik: Putar lagu upbeat saat lari jauh.</li>
-                            <li>Game: "Hijau-Hitam" untuk pemanasan.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 4. DATA SISWA -->
+                <!-- 5. DATA SISWA -->
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
                     <h3 class="font-bold text-green-600 mb-3 border-b pb-2 flex justify-between items-center">
                         <span>Data Masuk (Lokal)</span>
@@ -428,7 +517,7 @@
                 title: "Jarak Menengah (800m) 🔥",
                 video: "https://www.youtube.com/embed/iUiJqn4AA7E", 
                 videoDesc: "Analisis teknik lari 800 meter yang menekankan pada strategi Pacing (pengaturan irama), teknik Start Berdiri yang efisien, dan manajemen energi.",
-                safety: "Jangan berhenti mendadak setelah lari kencang, jalan kaki dulu agar darah tidak menumpuk di kaki.",
+                safety: "Jangan berhenti mendadak setelah lari kencang, jalan kaki dulu agar darah tidak menumpuk di kaki (mencegah pusing).",
                 glossary: [
                     { term: "Start Berdiri", def: "Posisi start dengan berdiri (satu kaki di depan), digunakan untuk lari >800m." },
                     { term: "Pacing", def: "Strategi mengatur kecepatan lari agar tenaga tidak habis di awal." },
@@ -512,6 +601,17 @@
 
         let currentTab = 'short';
         let currentScore = 0; 
+
+        // --- DASHBOARD LOGIC ---
+        function openAdminModal() { document.getElementById('admin-modal').classList.remove('hidden'); document.getElementById('admin-pin').focus(); }
+        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); document.getElementById('admin-pin').value = ''; }
+        function checkPin() { 
+            if (document.getElementById('admin-pin').value === "270302") { 
+                closeAdminModal(); document.getElementById('teacher-dashboard').classList.remove('hidden'); loadStudentData(); 
+            } else { alert("PIN Salah! Coba lagi Pak."); } 
+        }
+        function closeDashboard() { document.getElementById('teacher-dashboard').classList.add('hidden'); }
+        function toggleAnswer(id) { const el = document.getElementById(id); el.classList.toggle('hidden'); }
 
         // --- CORE FUNCTIONS ---
         document.getElementById('identity-form').addEventListener('submit', function(e) {
@@ -606,17 +706,6 @@
             }
             feedbackEl.classList.remove('hidden');
         }
-
-        // --- DASHBOARD LOGIC ---
-        function openAdminModal() { document.getElementById('admin-modal').classList.remove('hidden'); document.getElementById('admin-pin').focus(); }
-        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); document.getElementById('admin-pin').value = ''; }
-        function checkPin() { 
-            if (document.getElementById('admin-pin').value === "270302") { 
-                closeAdminModal(); document.getElementById('teacher-dashboard').classList.remove('hidden'); loadStudentData(); 
-            } else { alert("PIN Salah! Coba lagi Pak."); } 
-        }
-        function closeDashboard() { document.getElementById('teacher-dashboard').classList.add('hidden'); }
-        function toggleAnswer(id) { const el = document.getElementById(id); el.classList.toggle('hidden'); }
 
         // --- SUBMIT & DATA ---
         function submitLKPD() {
