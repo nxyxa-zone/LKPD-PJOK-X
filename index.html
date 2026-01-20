@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LKPD PJOK PRO : Atletik Zone</title>
+    <title>PJOK PRO: Atletik Zone</title>
     
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,7 +66,7 @@
                     <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                     <p class="font-bold text-[10px] uppercase tracking-wider">PJOK Fase E • Kelas X</p>
                 </div>
-                <h1 class="text-3xl font-extrabold leading-tight mb-1 drop-shadow-md"> Aktivitas Atletik <br><span class="text-yellow-400">Lari ⚡</span></h1>
+                <h1 class="text-3xl font-extrabold leading-tight mb-1 drop-shadow-md">Atletik Zone <br><span class="text-yellow-400">Mode On! ⚡</span></h1>
                 
                 <!-- IDENTITAS GURU & TOMBOL ADMIN -->
                 <div class="flex items-center justify-between mt-4 bg-black/30 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
@@ -372,7 +372,7 @@
                 <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest">PJOK Kurikulum Merdeka</p>
                 <div class="text-xs text-gray-500 font-medium flex items-center gap-1 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
                     <span>Coded with ⚡ by</span>
-                    <a href="https://instagram.com/nxyxa.27" target="_blank" class="text-pink-600 hover:text-pink-800 font-bold flex items-center gap-1 transition-colors"> NxyxA <i class="fab fa-instagram"></i></a>
+                    <a href="https://instagram.com/nxyxa.27" target="_blank" class="text-pink-600 hover:text-pink-800 font-bold flex items-center gap-1 transition-colors">@NxyxA <i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </footer>
@@ -630,9 +630,11 @@
             let p5Checked = [];
             document.querySelectorAll('#p5-checklist-container input:checked').forEach(cb => { 
                 let text = cb.closest('label').querySelector('span').innerText;
+                // Menggunakan \n (enter) bukan %0A agar rapi saat di-encode
                 p5Checked.push("⭐ " + text); 
             });
-            const p5Text = p5Checked.length ? p5Checked.join("%0A") : "-";
+            // Gabung dengan \n (enter)
+            const p5Text = p5Checked.length ? p5Checked.join("\n") : "-";
 
             // Local Storage
             const studentEntry = { nama, kelas, absen, materi: contentData[currentTab].title, timestamp: new Date().toISOString() };
@@ -640,18 +642,24 @@
             existingData.push(studentEntry);
             localStorage.setItem('pjokData', JSON.stringify(existingData));
 
-            // WA Message (Encoded for safety)
-            let pesan = `*LAPORAN MISI PJOK 🚀*\n`;
-            pesan += `Materi: ${contentData[currentTab].title.toUpperCase()}\n`;
+            // WA Message (Format Baru yang Lebih Rapi)
+            let pesan = `*LAPORAN MISI PJOK 🚀*\n\n`;
+            pesan += `📚 *MATERI:* ${contentData[currentTab].title.toUpperCase()}\n`;
             pesan += `----------------------------------\n`;
-            pesan += `😎 *Agent:* ${nama}\n`;
-            pesan += `🏫 *Base:* ${kelas} / No. ${absen}\n`;
-            pesan += `----------------------------------\n`;
+            pesan += `😎 *AGENT:* ${nama}\n`;
+            pesan += `🏫 *BASE:* ${kelas} (No. ${absen})\n`;
+            pesan += `----------------------------------\n\n`;
+            
             pesan += `📢 *STORY LAPANGAN:*\n_"${cerita}"_\n\n`;
+            
             pesan += `💭 *REFLEKSI DIRI:*\n_"${refleksi}"_\n\n`;
-            pesan += `💯 *SKOR QUIZ: ${currentScore} / 100*\n`;
-            pesan += `🆙 *LEVEL UP KARAKTER:*\n${p5Text}\n`;
-            pesan += `----------------------------------\n_Dikirim via App PJOK Pak Nanda_`;
+            
+            pesan += `💯 *SKOR QUIZ:* ${currentScore} / 100\n\n`;
+            
+            pesan += `🆙 *LEVEL UP KARAKTER:*\n${p5Text}\n\n`;
+            
+            pesan += `----------------------------------\n`;
+            pesan += `_Dikirim via App PJOK Pak Nanda_`;
 
             if(confirm(`Yakin udah selesai semua misinya? Kirim laporan ke Pak Nanda sekarang?`)) { 
                 window.open(`https://wa.me/${nomorGuru}?text=${encodeURIComponent(pesan)}`, '_blank'); 
@@ -675,4 +683,5 @@
     </script>
 </body>
 </html>
+
 
